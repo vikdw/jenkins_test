@@ -14,3 +14,5 @@ test8_main
 test6_all
 
 test7_all
+
+test8_all
