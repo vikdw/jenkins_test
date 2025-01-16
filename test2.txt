@@ -9,3 +9,5 @@ test3_all
 test4_all
 
 test5_all
+
+test6_all
