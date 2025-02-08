@@ -27,9 +27,9 @@ pipeline {
                 echo "${env.tester} env from groovy."
                 script{
                 build(
-                propagate: false, job: 'down_job1'
+                propagate: false, job: 'down_job1',
                 parameters:
-                  [string defaultValue: 'upstream', description: 'upstream job', name: 'UL_job']
+                  [string(defaultValue: 'upstream', description: 'upstream job', name: 'UL_job')]
                      )
                       }
                 sleep 10
