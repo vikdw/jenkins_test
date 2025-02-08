@@ -27,6 +27,8 @@ pipeline {
                 echo "${params.name} started the job."
                 echo "${params.name2} is parameter from groovy."
                 echo "${env.tester} env from groovy."
+                build 'job1'
+                build 'job2'
                 sleep 10
             }
         }
