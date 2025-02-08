@@ -1,0 +1,37 @@
+// pipeline to chck retry and env and parameters
+// "params.name2" is defined using "This project is parameterized" in GUI	
+
+pipeline {
+    agent any
+
+   options {
+         timestamps()
+         timeout(time: 30, unit: 'SECONDS')
+         retry(3)
+         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '30', numToKeepStr: '5')
+         disableConcurrentBuilds abortPrevious: true
+           }
+
+  parameters {
+  string defaultValue: 'vikas2', description: 'name of user', name: 'name2'
+             }
+
+  environment {
+  tester = "Tester_vikas"
+              }
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                echo "${params.name} started the job."
+                echo "${params.name2} is parameter from groovy."
+                echo "${env.tester} env from groovy."
+                build quietPeriod: 8, wait: false, propagate: false, job: 'job1'
+                build quietPeriod: 8, wait: false, propagate: false, job: 'job1'  
+                sleep 10
+            }
+        }
+    }
+}
+
