@@ -3,15 +3,19 @@
 
 pipeline {
     agent any
+
    options {
-  retry(3)
-}
-parameters {
+         retry(3)
+         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '30', numToKeepStr: '5')
+           }
+
+  parameters {
   string defaultValue: 'vikas2', description: 'name of user', name: 'name2'
-}
-environment {
+             }
+
+  environment {
   tester = "Tester_vikas"
-}
+              }
 
     stages {
         stage('Hello') {
