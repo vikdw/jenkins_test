@@ -25,7 +25,8 @@ pipeline {
                         parallel{
                               stage('job1'){
                                     steps{
-                                     build(propagate: false, job: 'job1')
+                                   //  build(propagate: false, job: 'job1')
+                                   job1result=build(propagate: false, job: 'job1').result
 }
 }
                               stage('job2'){
@@ -39,6 +40,17 @@ pipeline {
 
             
         }
+        stage('2nd Hello') {
+            steps {
+                echo 'Hello World'
+                echo "${params.name} started the job."
+                echo "${params.name2} is parameter from groovy."
+                echo "${env.tester} env from groovy."
+                sleep 12 
+                echo "${job1result}"
+            }
+        }
+
     }
 }
 
