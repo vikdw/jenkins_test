@@ -24,12 +24,12 @@ pipeline {
         stage('Hello') {
                         parallel{
                               stage('job1'){
-                                    step{
+                                    steps{
                                      build(propagate: false, job: 'job1')
 }
 }
                               stage('job2'){
-                                    step{
+                                    steps{
                                       build wait: false, propagate: false, job: 'job2'
 }
 }
