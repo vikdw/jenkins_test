@@ -28,7 +28,7 @@ pipeline {
                 echo "${params.name2} is parameter from groovy."
                 echo "${env.tester} env from groovy."
                 script{
-                job1result=build(wait: false, propagate: false, job: 'job1').result
+                job1result=build(propagate: false, job: 'job1').result
                 build wait: false, propagate: false, job: 'job1'  
                       }
                 sleep 10
