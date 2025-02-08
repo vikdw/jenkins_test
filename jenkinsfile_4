@@ -26,7 +26,9 @@ pipeline {
                               stage('job1'){
                                     steps{
                                    //  build(propagate: false, job: 'job1')
+                                   script{
                                    job1result=build(propagate: false, job: 'job1').result
+}
 }
 }
                               stage('job2'){
