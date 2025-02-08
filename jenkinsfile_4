@@ -37,12 +37,7 @@ pipeline {
 
 
 
-            steps {
-                echo 'Hello World'
-                echo "${params.name} started the job."
-                echo "${params.name2} is parameter from groovy."
-                echo "${env.tester} env from groovy."
-            }
+            
         }
     }
 }
