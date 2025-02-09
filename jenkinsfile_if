@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('check even/odd') {
+            steps {
+                script{
+                    int build_number="${BUILD_NUMBER}"
+                    if(build_number%2==0){
+                        echo "EVEN"
+                    }
+                    else{
+                        echo "ODD"
+                    }
+                    
+                }
+            }
+        }
+    }
+}
