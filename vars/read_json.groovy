@@ -1,9 +1,10 @@
 import groovy.json.JsonSlurper
 
 
-def jsonReader(json_file='data.json'){
+def jsonReader(){
     def jsonSlurper = new JsonSlurper()
+    def file = libraryResources "data.json"
     
-    def config = jsonSlurper.parse(new File(json_file))
+    def config = jsonSlurper.parse(new File(file))
     return config 
 }
