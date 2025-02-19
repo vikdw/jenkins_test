@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper
 
 
-def jsonReader(file){
+def jsonReader(){
     def jsonSlurper = new JsonSlurper()
     def tempFile = libraryResource "data.json"
     writeFile file : "temp_data.json" tempFile
