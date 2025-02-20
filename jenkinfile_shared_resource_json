@@ -26,8 +26,8 @@ pipeline {
         stage('load_JSON_to_Varibale_Params') {
             steps {
                 script{
-                    read_json.jsonReader('$file_name')
-                    Params = readJSON file: '$file_name'
+                    read_json.jsonReader("${file_name}")
+                    Params = readJSON file: "${file_name}"
                 }
             }
         }
