@@ -9,7 +9,7 @@ pipeline {
     agent any
 
     parameters {
-        file description: 'json file', name: './data.json' 
+         string defaultValue: 'data.json', description: 'Json file name', name: 'file name'
     }
 
     stages {
