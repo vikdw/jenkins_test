@@ -9,7 +9,7 @@ pipeline {
     agent any
 
     parameters {
-         string defaultValue: 'data.json', description: 'Json file name', name: 'file name'
+         string defaultValue: 'data.json', description: 'Json file name', name: 'file_name'
     }
 
     stages {
@@ -26,8 +26,8 @@ pipeline {
         stage('load_JSON_to_Varibale_Params') {
             steps {
                 script{
-                    read_json.jsonReader('data.json')
-                    Params = readJSON file: 'data.json'
+                    read_json.jsonReader('$file_name')
+                    Params = readJSON file: '$file_name'
                 }
             }
         }
