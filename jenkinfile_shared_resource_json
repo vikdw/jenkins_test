@@ -1,0 +1,39 @@
+//"global_shared_lib_jenkin_test" shared lib is already defined in git as global library.
+
+
+@Library("global_shared_lib_jenkin_test") _
+
+def Params = ""
+
+pipeline {
+    agent any
+
+    stages {
+        stage('clean WorkSpace Dir') {
+            steps {
+                cleanWs()
+            }
+        }
+        stage('list_files') {
+            steps {              
+                sh "ls -lrt"
+            }
+        }
+        stage('load_JSON_to_Varibale_Params') {
+            steps {
+                script{
+                    read_json.jsonReader('data.json')
+                    Params = readJSON file: 'data.json'
+                }
+            }
+        }
+        stage('printing_json values') {
+            steps {
+                echo "${Params}"
+                echo "${Params.test.servers.server1.name}"
+            }
+        }
+       
+    }
+}
+
