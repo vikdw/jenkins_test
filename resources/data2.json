@@ -2,16 +2,16 @@
     "test": {
         "servers":{
             "server1": {
-                "name": "test1",
-                "IP": "10.10.10.10",
+                "name": "test11",
+                "IP": "20.20.20.20",
                 "file_path": "/tmp/",
-                "file_name": "data.txt"
+                "file_name": "data2.txt"
             },
             "server2": {
-                "name": "test2",
+                "name": "test22",
                 "IP": "10.10.10.20",
                 "file_path": "/tmp/",
-                "file_name": "data.txt"
+                "file_name": "data2.txt"
             }
         }
     }
