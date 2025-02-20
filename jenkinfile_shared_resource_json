@@ -8,6 +8,10 @@ def Params = ""
 pipeline {
     agent any
 
+    parameters {
+        file description: 'json file', name: './data.json' 
+    }
+
     stages {
         stage('clean WorkSpace Dir') {
             steps {
